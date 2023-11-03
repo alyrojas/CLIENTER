@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EliminarRecursoComponent } from './components/eliminar-recurso/eliminar-recurso.component';
 import { EditRecursoComponent } from './components/edit-recurso/edit-recurso.component';
+import { AsignacionComponent } from './components/asignacion/asignacion.component';
 
 const routes: Routes = [
   { path: '', component: CrearRecursoComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'editar-recurso/:id', component: CrearRecursoComponent},
   { path: 'eliminar-recurso/:id', component: EliminarRecursoComponent},
   { path: 'edit-recurso/:id', component: EditRecursoComponent},
+  {path: 'asignacion', component: AsignacionComponent},
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

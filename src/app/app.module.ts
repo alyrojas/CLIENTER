@@ -13,6 +13,16 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { EliminarRecursoComponent } from './components/eliminar-recurso/eliminar-recurso.component';
 import { EditRecursoComponent } from './components/edit-recurso/edit-recurso.component';
+import { AsignacionComponent } from './components/asignacion/asignacion.component'
+import { BusquedaPorEmpeladoComponent } from './components/asignacion/busqueda-por-empelado/busqueda-por-empelado.component';
+import { BusquedaPorRecursoComponent } from './components/asignacion/busqueda-por-recurso/busqueda-por-recurso.component';
+import { AsignarComponent } from './components/asignacion/asignar/asignar.component';
+import { ModalFallaComponent } from './components/asignacion/modal-falla/modal-falla.component';
+import { DatePipe } from '@angular/common';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +31,12 @@ import { EditRecursoComponent } from './components/edit-recurso/edit-recurso.com
     ListarRecursoComponent,
     FilterPipe,
     EliminarRecursoComponent,
-    EditRecursoComponent
+    EditRecursoComponent,
+    AsignacionComponent,
+    BusquedaPorEmpeladoComponent,
+    BusquedaPorRecursoComponent,
+    AsignarComponent,
+    ModalFallaComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +47,7 @@ import { EditRecursoComponent } from './components/edit-recurso/edit-recurso.com
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
