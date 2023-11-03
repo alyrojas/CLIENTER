@@ -138,4 +138,10 @@ export class BusquedaPorRecursoComponent implements OnInit {
     return !!this.dataRecursos.find(f => f.isSeleccionado);
   }
 
+  reportarFalla(valor: any) {
+    if(valor) {
+      this.ngOnInit();
+    }
+  }
+
 }

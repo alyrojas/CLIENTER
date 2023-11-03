@@ -46,7 +46,6 @@ export class AsignacionService {
     const retorno = firstValueFrom(
       this.httpClient.post<Recurso[]>(`${this.apiRecurso}/filtros`, filtros, {headers: this.headers})
     );
-    console.info(retorno);
     return retorno;
   }
 

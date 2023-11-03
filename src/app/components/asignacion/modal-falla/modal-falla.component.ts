@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, Output, OnChanges, EventEmitter } from '@angular/core';
 import { AsignacionService, Recurso } from '../asignacion.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DatePipe } from '@angular/common';
@@ -12,6 +12,7 @@ import { DatePipe } from '@angular/common';
 export class ModalFallaComponent implements OnChanges {
 
   @Input() recurso: Recurso|null;
+  @Output() reportarFalla = new EventEmitter<boolean>();
   formFalla: FormGroup;
 
   constructor(private service: AsignacionService, private formBuilder: FormBuilder, private datePipe: DatePipe) {
@@ -34,7 +35,15 @@ export class ModalFallaComponent implements OnChanges {
   guardar(): void {
     console.info('Reporte de falla')
     console.info(this.formFalla.value)
-    this.service.guardarFalla(this.formFalla.value);
+    this.service.guardarFalla(this.formFalla.value).then(
+      (success) => {
+        document.getElementById('btnCancelar')?.click()
+        this.reportarFalla.emit(true);
+      }, (error) => {
+        console.info(error)
+        alert('Ocurrio un error')
+      }
+    );
   }
 
 }
